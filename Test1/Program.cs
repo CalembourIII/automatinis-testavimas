@@ -11,6 +11,8 @@ namespace Test1
         static void Main(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
+
+            Console.WriteLine();
         }
     }
 }
