@@ -1,2 +1,3 @@
 # automatinis-testavimas
-aaa
+Nauja grazi eilute
+Dar naujesne
