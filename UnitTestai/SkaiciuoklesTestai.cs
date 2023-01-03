@@ -48,11 +48,11 @@ namespace UnitTestai
         [Test]
         public void DalybosTestas()
         {
-            double laukiamaDalyba = 2;
+            double expectedResult = 1.5;
 
-            double tikrojiDalyba = Skaiciuokles.Skaiciuokles.Dalyba(8, 4);
+            double actualResult = Skaiciuokles.Skaiciuokles.Dalyba(6, 4);
 
-            Assert.AreEqual(laukiamaDalyba, tikrojiDalyba);
+            Assert.AreEqual(expectedResult, actualResult);
         }
     }
 }

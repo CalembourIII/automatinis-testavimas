@@ -23,7 +23,7 @@ namespace Skaiciuokles
         }
         public static double Dalyba(int sk1, int sk2)
         {
-            return sk1 / sk2;
+            return (double)sk1 / sk2;
         }
     }
 }
