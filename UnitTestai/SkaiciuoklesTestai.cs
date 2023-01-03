@@ -13,56 +13,46 @@ namespace UnitTestai
         public void SumosTestas()
         {
             // Duomenys
-            int laukiamaSuma = 10;
+            int expectedResult = 10;
 
             // Veiksmai
-            int tikrojiSuma = Skaiciuokles.Skaiciuokles.Suma(5, 5);
+            int actualResult = Skaiciuokles.Skaiciuokles.Suma(5, 5);
 
             // Patikrinimas
-            Assert.AreEqual(laukiamaSuma, tikrojiSuma);
+            Assert.AreEqual(expectedResult, actualResult);
 
+            // Galima dar parašyti šitaip:
+            // Assert.True(expectedResult== actualResult, $"Tikiuosi: {expectedResult}; rezultatas: {actualResult})");
         }
 
         [Test]
         public void AtimtiesTestas()
         {
-            // Duomenys
-            int laukiamaAtimtis = 10;
+            int expectedResult = 10;
 
-            // Veiksmai
-            int tikrojiAtimtis = Skaiciuokles.Skaiciuokles.Atimtis(10, 10);
+            int actualResult = Skaiciuokles.Skaiciuokles.Atimtis(20, 10);
 
-            // Patikrinimas
-            Assert.AreEqual(laukiamaAtimtis, tikrojiAtimtis);
-
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         [Test]
         public void SandaugosTestas()
         {
-            // Duomenys
-            int laukiamaSandauga = 100;
+            int expectedResult = 100;
 
-            // Veiksmai
-            int tikrojiSandauga = Skaiciuokles.Skaiciuokles.Sandauga(10, 10);
+            int actualResult = Skaiciuokles.Skaiciuokles.Sandauga(10, 10);
 
-            // Patikrinimas
-            Assert.AreEqual(laukiamaSandauga, tikrojiSandauga);
-
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         [Test]
         public void DalybosTestas()
         {
-            // Duomenys
-            double laukiamaDalyba = 2.3;
+            double laukiamaDalyba = 2;
 
-            // Veiksmai
-            double tikrojiDalyba = Skaiciuokles.Skaiciuokles.Dalyba(7, 3);
+            double tikrojiDalyba = Skaiciuokles.Skaiciuokles.Dalyba(8, 4);
 
-            // Patikrinimas
             Assert.AreEqual(laukiamaDalyba, tikrojiDalyba);
-
         }
     }
 }
