@@ -54,5 +54,13 @@ namespace UnitTestai
 
             Assert.AreEqual(expectedResult, actualResult);
         }
+
+        [Test]
+        public void DalybosTestai()
+        {
+            Assert.AreEqual(1.5, Skaiciuokles.Skaiciuokles.Dalyba(6, 4));
+            Assert.AreEqual(2, Skaiciuokles.Skaiciuokles.Dalyba(8, 4));
+            Assert.AreEqual(0.3333333333333333, Skaiciuokles.Skaiciuokles.Dalyba(1, 3));
+        }
     }
 }
