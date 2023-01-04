@@ -23,10 +23,10 @@ namespace UnitTestai
         public void DalybosTestas()
         {
             // Duomenys
-            double expectedResult = 0;
+            int expectedResult = 0;
 
             // Veiksmai
-            double actualResult = 995 % 3;
+            int actualResult = 995 % 3;
 
             // Patikrinimas
             Assert.AreEqual(expectedResult, actualResult);
@@ -50,6 +50,30 @@ namespace UnitTestai
 
             //Assert.AreEqual(expectedResult, actualResult);
             Assert.IsTrue(expectedResult);
+        }
+
+        [Test]
+        public void Ar_Siandien_Treciadienis_2_Testas()
+        {
+            DayOfWeek expectedResult = DayOfWeek.Wednesday;
+
+            DateTime today = DateTime.Now;
+
+            DayOfWeek actualResult = today.DayOfWeek;
+
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [Test]
+        public void Ar_Siandien_Treciadienis_3_Testas()
+        {
+            DayOfWeek expectedResult = DayOfWeek.Wednesday;
+
+            DateTime now = DateTime.Now;
+
+            DayOfWeek actualResult = now.DayOfWeek;
+
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         [Test]
