@@ -10,10 +10,14 @@ using System.Threading.Tasks;
 
 namespace SeleniumTestai
 {
-    public class Class1
+    public class InputElements
     {
+
+        // $x("//div[@id='user-message']") - kai kazko nerandi, elemento puslapyje, kad gautusi geras xPath,
+        // tai gali per console surinkti ir bandyti ieskoti
+
         [Test]
-        public void Testas1()
+        public void Demoqa_TextBox()
         {
             IWebDriver driver = new ChromeDriver();
 
@@ -29,13 +33,8 @@ namespace SeleniumTestai
 
             driver.Quit();
 
-
-
             //driver.FindElement(By.CssSelector("#userName"));
             //driver.FindElement(By.Id("userName"));
-
-
-
 
             //driver.FindElement(By.XPath(""));
             //driver.FindElement(By.CssSelector(""));
@@ -43,7 +42,7 @@ namespace SeleniumTestai
         }
 
         [Test]
-        public void Testas2()
+        public void Demoqa_TextBox2()
         {
             IWebDriver driver = new ChromeDriver();
 
@@ -60,7 +59,7 @@ namespace SeleniumTestai
         }
 
         [Test]
-        public void Testas3()
+        public void Omayo_Single_Message1()
         {
             IWebDriver driver = new ChromeDriver();
 
@@ -81,7 +80,7 @@ namespace SeleniumTestai
         }
 
         [Test]
-        public void Testas4()
+        public void Omayo_Single_Message2()
         {
             IWebDriver driver = new ChromeDriver();
 
@@ -101,7 +100,7 @@ namespace SeleniumTestai
         }
 
         [Test]
-        public void Testas5()
+        public void Selenium_Easy_Single_Message()
         {
             IWebDriver driver = new ChromeDriver();
 
@@ -123,13 +122,13 @@ namespace SeleniumTestai
         }
 
         [Test]
-        public void Testas6()
+        public void Selenium_Easy_Full_Message()
         {
             IWebDriver driver = new ChromeDriver();
 
             driver.Url = "https://demo.seleniumeasy.com/basic-first-form-demo.html";
 
-            string message = "Martynas";
+            string message = "Paulius";
             string expectedResult = $"Your Message: {message}";
 
             IWebElement inputMessage = driver.FindElement(By.XPath("//*[@id=\"user-message\"]"));
@@ -138,6 +137,58 @@ namespace SeleniumTestai
 
             inputMessage.SendKeys(message);
             buttonShowMessage.Click();
+            string actualResult = fullMessage.Text;
+
+            Assert.AreEqual(expectedResult, actualResult);
+
+            driver.Quit();
+        }
+
+        [Test]
+        public void Selenium_Two_Input_Fields()
+        {
+            IWebDriver driver = new ChromeDriver();
+
+            driver.Url = "https://demo.seleniumeasy.com/basic-first-form-demo.html";
+
+            string inputValue1 = "5";
+            string inputValue2 = "5";
+            string expectedResult = "10";
+
+            IWebElement inputNumber1 = driver.FindElement(By.Id("sum1")); // Cia su Id bandom rasti elementa, ne su XPatch
+            IWebElement inputNumber2 = driver.FindElement(By.Id("sum2"));
+            IWebElement buttonGetTotal = driver.FindElement(By.XPath("//*[@id=\"gettotal\"]/button"));
+            IWebElement fullMessage = driver.FindElement(By.XPath("//*[@id=\"displayvalue\"]"));
+
+            inputNumber1.SendKeys(inputValue1);
+            inputNumber2.SendKeys(inputValue2);
+            buttonGetTotal.Click();
+            string actualResult = fullMessage.Text;
+
+            Assert.AreEqual(expectedResult, actualResult);
+
+            driver.Quit();
+        }
+
+        [Test]
+        public void Selenium_Two_Input_Fields_NaN()
+        {
+            IWebDriver driver = new ChromeDriver();
+
+            driver.Url = "https://demo.seleniumeasy.com/basic-first-form-demo.html";
+
+            string inputValue1 = "";
+            string inputValue2 = "";
+            string expectedResult = "NaN"; // Nan reiskia "Not a Number" - tikrinsim ar rezultatas - ne skaicius
+
+            IWebElement inputNumber1 = driver.FindElement(By.Id("sum1")); // Cia su Id bandom rasti elementa, ne su XPatch
+            IWebElement inputNumber2 = driver.FindElement(By.Id("sum2"));
+            IWebElement buttonGetTotal = driver.FindElement(By.XPath("//*[@id=\"gettotal\"]/button"));
+            IWebElement fullMessage = driver.FindElement(By.XPath("//*[@id=\"displayvalue\"]"));
+
+            inputNumber1.SendKeys(inputValue1);
+            inputNumber2.SendKeys(inputValue2);
+            buttonGetTotal.Click();
             string actualResult = fullMessage.Text;
 
             Assert.AreEqual(expectedResult, actualResult);
