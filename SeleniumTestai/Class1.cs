@@ -85,16 +85,60 @@ namespace SeleniumTestai
         {
             IWebDriver driver = new ChromeDriver();
 
-            string expectedResult = "Martynas";
-
             driver.Url = "https://omayo.blogspot.com/";
-            //driver.Navigate().GoToUrl("https://omayo.blogspot.com/"); // kitas budas atsidaryti puslapi
+
+            string expectedResult = "Martynas";
 
             IWebElement inputElement = driver.FindElement(By.XPath("//*[@id=\"textbox1\"]"));
             inputElement.Clear();
             inputElement.SendKeys(expectedResult);
 
             string actualResult = inputElement.GetAttribute("value");
+
+            Assert.AreEqual(expectedResult, actualResult);
+
+            driver.Quit();
+        }
+
+        [Test]
+        public void Testas5()
+        {
+            IWebDriver driver = new ChromeDriver();
+
+            driver.Url = "https://demo.seleniumeasy.com/basic-first-form-demo.html";
+
+            string expectedResult = "Martynas";
+
+            IWebElement inputMessage = driver.FindElement(By.XPath("//*[@id=\"user-message\"]"));
+            IWebElement buttonShowMessage = driver.FindElement(By.XPath("//*[@id='get-input']/button"));
+            IWebElement spanMessage = driver.FindElement(By.XPath("//*[@id=\"display\"]"));
+
+            inputMessage.SendKeys(expectedResult);
+            buttonShowMessage.Click();
+            string actualResult = spanMessage.Text;
+
+            Assert.AreEqual(expectedResult, actualResult);
+
+            driver.Quit();
+        }
+
+        [Test]
+        public void Testas6()
+        {
+            IWebDriver driver = new ChromeDriver();
+
+            driver.Url = "https://demo.seleniumeasy.com/basic-first-form-demo.html";
+
+            string message = "Martynas";
+            string expectedResult = $"Your Message: {message}";
+
+            IWebElement inputMessage = driver.FindElement(By.XPath("//*[@id=\"user-message\"]"));
+            IWebElement buttonShowMessage = driver.FindElement(By.XPath("//*[@id='get-input']/button"));
+            IWebElement fullMessage = driver.FindElement(By.XPath("//div[@id=\"user-message\"]"));
+
+            inputMessage.SendKeys(message);
+            buttonShowMessage.Click();
+            string actualResult = fullMessage.Text;
 
             Assert.AreEqual(expectedResult, actualResult);
 
