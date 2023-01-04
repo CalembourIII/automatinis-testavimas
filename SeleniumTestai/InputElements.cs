@@ -16,6 +16,13 @@ namespace SeleniumTestai
         // $x("//div[@id='user-message']") - kai kazko nerandi, elemento puslapyje, kad gautusi geras xPath,
         // tai gali per console surinkti ir bandyti ieskoti
 
+        //driver.FindElement(By.CssSelector("#userName"));
+        //driver.FindElement(By.Id("userName"));
+
+        //driver.FindElement(By.XPath(""));
+        //driver.FindElement(By.CssSelector(""));
+        //driver.FindElement(By.Id(""));
+
         [Test]
         public void Demoqa_TextBox()
         {
@@ -27,18 +34,11 @@ namespace SeleniumTestai
             IWebElement inputElement = driver.FindElement(By.XPath("//*[@ID=\"userName\"]"));
             inputElement.SendKeys("Labas");
 
-            string actualOutput = inputElement.Text;
+            string actualOutput = inputElement.Text; // su inputElement nepavyksta. Cia reiktu naudoti: inputElement.GetAttribute("value");
 
             Assert.AreEqual(expectedOutput, actualOutput);
 
             driver.Quit();
-
-            //driver.FindElement(By.CssSelector("#userName"));
-            //driver.FindElement(By.Id("userName"));
-
-            //driver.FindElement(By.XPath(""));
-            //driver.FindElement(By.CssSelector(""));
-            //driver.FindElement(By.Id(""));
         }
 
         [Test]
