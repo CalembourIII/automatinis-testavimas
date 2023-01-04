@@ -57,7 +57,48 @@ namespace SeleniumTestai
             Assert.AreEqual(expectedResult, actualResult);
 
             driver.Quit();
+        }
 
+        [Test]
+        public void Testas3()
+        {
+            IWebDriver driver = new ChromeDriver();
+
+            string expectedResult = "Martynas";
+
+            driver.Url = "https://omayo.blogspot.com/";
+            //driver.Navigate().GoToUrl("https://omayo.blogspot.com/"); // kitas budas atsidaryti puslapi
+
+            IWebElement inputElement = driver.FindElement(By.XPath("//form[@name='form1']/input[@type='text']"));
+
+            inputElement.SendKeys(expectedResult);
+
+            string actualResult = inputElement.GetAttribute("value");
+
+            Assert.AreEqual(expectedResult, actualResult);
+
+            driver.Quit();
+        }
+
+        [Test]
+        public void Testas4()
+        {
+            IWebDriver driver = new ChromeDriver();
+
+            string expectedResult = "Martynas";
+
+            driver.Url = "https://omayo.blogspot.com/";
+            //driver.Navigate().GoToUrl("https://omayo.blogspot.com/"); // kitas budas atsidaryti puslapi
+
+            IWebElement inputElement = driver.FindElement(By.XPath("//*[@id=\"textbox1\"]"));
+            inputElement.Clear();
+            inputElement.SendKeys(expectedResult);
+
+            string actualResult = inputElement.GetAttribute("value");
+
+            Assert.AreEqual(expectedResult, actualResult);
+
+            driver.Quit();
         }
 
     }
