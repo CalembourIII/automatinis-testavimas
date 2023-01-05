@@ -11,6 +11,10 @@ namespace FrameworkStatic.Pages.OmayoBlogspot
 {
     public class Homepage
     {
+
+        private static string locatorHtmlFormUserName = "//form[@name='form1']/input[@type='text']"; // lokatorius apsirasau klases virsuj, po to pernaudoju
+        private static string locatorTextBoxWithpreloadedText = "//*[@id=\"textbox1\"]";
+
         public static void Open()
         {
             string url = "https://omayo.blogspot.com/";
@@ -23,7 +27,7 @@ namespace FrameworkStatic.Pages.OmayoBlogspot
             Common.SendKeysToElement(locator, name);
         }
 
-        public static string GetValueofHtmlFormUserName()
+        public static string GetValueOfHtmlFormUserName()
         {
             string locator = "//form[@name='form1']/input[@type='text']";
             return Common.GetAttributeValue(locator, "value");
