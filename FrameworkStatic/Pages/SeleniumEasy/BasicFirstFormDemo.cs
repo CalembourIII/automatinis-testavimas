@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FrameworkStatic.Pages.SeleniumEasy
 {
-    internal class BasicFirstFormDemo
+    public class BasicFirstFormDemo
     {
         private static string url = "https://demo.seleniumeasy.com/basic-first-form-demo.html";
         private static string InputMessageLocator = "//*[@id=\"user-message\"]";

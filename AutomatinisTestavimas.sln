@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestai", "UnitTestai\Un
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumTestai", "SeleniumTestai\SeleniumTestai.csproj", "{EFAEE341-C25E-4DF3-83EE-4B82CD593C43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrameworkStatic", "FrameworkStatic\FrameworkStatic.csproj", "{474E70F8-55B6-41B7-8E43-A9E37F4C0169}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsStatic", "TestsStatic\TestsStatic.csproj", "{26F4BEC7-885F-4165-B55B-2F41EB0E91B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{EFAEE341-C25E-4DF3-83EE-4B82CD593C43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFAEE341-C25E-4DF3-83EE-4B82CD593C43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFAEE341-C25E-4DF3-83EE-4B82CD593C43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{474E70F8-55B6-41B7-8E43-A9E37F4C0169}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{474E70F8-55B6-41B7-8E43-A9E37F4C0169}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{474E70F8-55B6-41B7-8E43-A9E37F4C0169}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{474E70F8-55B6-41B7-8E43-A9E37F4C0169}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26F4BEC7-885F-4165-B55B-2F41EB0E91B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26F4BEC7-885F-4165-B55B-2F41EB0E91B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26F4BEC7-885F-4165-B55B-2F41EB0E91B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26F4BEC7-885F-4165-B55B-2F41EB0E91B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
