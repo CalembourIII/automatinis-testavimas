@@ -29,5 +29,10 @@ namespace FrameworkStatic.Pages
             return GetElement(locator).Text;
             //return GetElement(locator).GetAttribute("value"); // kitas budas gauti atgal teksta
         }
+
+        internal static string GetAttributeValue(string locator, string attributeName)
+        {
+            return GetElement(locator).GetAttribute(attributeName);
+        }
     }
 }
