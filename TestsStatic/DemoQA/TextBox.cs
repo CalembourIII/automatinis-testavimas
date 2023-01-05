@@ -27,7 +27,6 @@ namespace TestsStatic.DemoQA
         [Test]
         public void Demoqa_Input()
         {
-
             string expectedResult = "Text Box";
             string actualResult = TextBox.GetHeaderText();
 

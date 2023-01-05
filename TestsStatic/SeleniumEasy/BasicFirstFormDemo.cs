@@ -26,11 +26,11 @@ namespace TestsStatic.SeleniumEasy
         }
 
         [Test]
-        public void Selenium_Enter_Message_Text_Get_Span_Value()
+        public void Enter_Message_Text_Get_Span_Value()
         {
             string expectedResult = "Paulius";
 
-            BasicFirstFormDemo.EnterMessage("Paulius");
+            BasicFirstFormDemo.EnterMessage(expectedResult);
             BasicFirstFormDemo.ClickShowMessageButton();
 
             string actualResult = BasicFirstFormDemo.GetValueOfMessage();
@@ -39,7 +39,7 @@ namespace TestsStatic.SeleniumEasy
         }
 
         [Test]
-        public void Selenium_Enter_Message_Text_Get_Full_Value()
+        public void Enter_Message_Text_Get_Full_Value()
         {
             string message = "Paulius";
             string expectedResult = $"Your Message: {message}";
@@ -53,7 +53,7 @@ namespace TestsStatic.SeleniumEasy
         }
 
         [Test]
-        public void Selenium_Enter_Values_To_Sum_Get_Total_Value()
+        public void Enter_Values_To_Sum_Get_Total_Value()
         {
             string expectedResult = "10";
 
@@ -67,7 +67,7 @@ namespace TestsStatic.SeleniumEasy
         }
 
         [Test]
-        public void Selenium_Enter_Values_To_Sum_Check_NaN()
+        public void Enter_Values_To_Sum_Check_NaN()
         {
             string expectedResult = "NaN";
 

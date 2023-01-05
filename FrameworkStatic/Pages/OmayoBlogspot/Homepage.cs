@@ -32,7 +32,7 @@ namespace FrameworkStatic.Pages.OmayoBlogspot
             string locator = "//form[@name='form1']/input[@type='text']";
             return Common.GetAttributeValue(locator, "value");
         }
-        public static void ClearTextBoxWithpreloadedText()
+        public static void ClearTextBoxWithPreloadedText()
         {
             string locator = "//*[@id=\"textbox1\"]";
             Common.ClearInputElement(locator);

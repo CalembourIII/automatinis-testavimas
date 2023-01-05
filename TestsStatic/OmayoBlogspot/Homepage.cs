@@ -26,26 +26,23 @@ namespace TestsStatic.OmayoBlogspot
         }
 
         [Test]
-        public void Omayo_EnterHtmlFormUserName()
+        public void Enter_Html_Form_User_Name()
         {
-
             string expectedResult = "Paulius";
 
-            Homepage.EnterHtmlFormUserName("Paulius");
-
+            Homepage.EnterHtmlFormUserName(expectedResult);
             string actualResult = Homepage.GetValueOfHtmlFormUserName();
 
             Assert.AreEqual(expectedResult, actualResult);
         }
 
         [Test]
-        public void Omayo_EnterTextToBoxWithPreloadedText()
+        public void Clear_And_Enter_Text_To_Text_Box_With_Preloaded_Text()
         {
             string expectedResult = "Paulius";
 
-            Homepage.ClearTextBoxWithpreloadedText();
-            Homepage.EnterTextToBoxWithPreloadedText("Paulius");
-
+            Homepage.ClearTextBoxWithPreloadedText();
+            Homepage.EnterTextToBoxWithPreloadedText(expectedResult);
             string actualResult = Homepage.GetValueOfTextBoxWithPreloadedText();
 
             Assert.AreEqual(expectedResult, actualResult);
