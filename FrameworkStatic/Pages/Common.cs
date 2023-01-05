@@ -19,9 +19,9 @@ namespace FrameworkStatic.Pages
             GetElement(locator).Click();
         }
 
-        internal static void SendKeysToElement(string locator, string keys)
+        internal static void SendKeysToElement(string locator, string value)
         {
-            GetElement(locator).SendKeys(keys);
+            GetElement(locator).SendKeys(value);
         }
 
         internal static string GetElementText(string locator)

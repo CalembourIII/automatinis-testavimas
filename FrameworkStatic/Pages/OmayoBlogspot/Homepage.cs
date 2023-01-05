@@ -38,10 +38,10 @@ namespace FrameworkStatic.Pages.OmayoBlogspot
             Common.ClearInputElement(locator);
         }
 
-        public static void EnterTextBoxWithPreloadedText(string name)
+        public static void EnterTextBoxWithPreloadedText(string value)
         {
             string locator = "//*[@id=\"textbox1\"]";
-            Common.SendKeysToElement(locator, name);
+            Common.SendKeysToElement(locator, value);
         }
 
         public static string GetValueOfTextBoxWithPreloadedText()
