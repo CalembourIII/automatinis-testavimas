@@ -34,5 +34,11 @@ namespace FrameworkStatic.Pages
         {
             return GetElement(locator).GetAttribute(attributeName);
         }
+
+        internal static void ClearInputElement(string locator)
+        {
+            GetElement(locator).Clear();
+        }
+
     }
 }
