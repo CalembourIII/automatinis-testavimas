@@ -54,5 +54,10 @@ namespace FrameworkStatic.Pages
                 element.Click();
             }
         }
+
+        internal static bool GetCheckboxStatus(string locator)
+        {
+            return GetElement(locator).Selected;
+        }
     }
 }

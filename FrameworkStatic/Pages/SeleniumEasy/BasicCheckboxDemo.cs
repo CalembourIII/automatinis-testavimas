@@ -13,6 +13,10 @@ namespace FrameworkStatic.Pages.SeleniumEasy
         private static string multipleCheckboxesLocator = "//*[@class='cb1-element']";
         private static string successMessageLocator = "//*[@id=\"txtAge\"]";
         private static string checkAllButtonLocator = "//*[@id=\"check1\"]";
+        private static string multipleCheckbox1Locator = "(//*[@class='cb1-element'])[1]";
+        private static string multipleCheckbox2Locator = "(//*[@class='cb1-element'])[2]";
+        private static string multipleCheckbox3Locator = "(//*[@class='cb1-element'])[3]";
+        private static string multipleCheckbox4Locator = "(//*[@class='cb1-element'])[4]";
 
 
         public static void Open()
@@ -47,22 +51,41 @@ namespace FrameworkStatic.Pages.SeleniumEasy
 
         public static bool GetCheckbox1Status()
         {
-            throw new NotImplementedException();
+            return Common.GetCheckboxStatus(multipleCheckbox1Locator);
         }
-
         public static bool GetCheckbox2Status()
         {
-            throw new NotImplementedException();
+            return Common.GetCheckboxStatus(multipleCheckbox2Locator);
         }
 
         public static bool GetCheckbox3Status()
         {
-            throw new NotImplementedException();
+            return Common.GetCheckboxStatus(multipleCheckbox3Locator);
         }
 
         public static bool GetCheckbox4Status()
         {
-            throw new NotImplementedException();
+            return Common.GetCheckboxStatus(multipleCheckbox4Locator);
         }
+        public static void ClickMultipleCheckbox1()
+        {
+            Common.ClickElement(multipleCheckbox1Locator);
+        }
+
+        public static void ClickMultipleCheckbox2()
+        {
+            Common.ClickElement(multipleCheckbox2Locator);
+        }
+
+        public static void ClickMultipleCheckbox3()
+        {
+            Common.ClickElement(multipleCheckbox3Locator);
+        }
+
+        public static void ClickMultipleCheckbox4()
+        {
+            Common.ClickElement(multipleCheckbox4Locator);
+        }
+
     }
 }

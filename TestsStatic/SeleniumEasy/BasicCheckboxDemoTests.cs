@@ -56,12 +56,37 @@ namespace TestsStatic.SeleniumEasy
             bool statusCheckbox3 = BasicCheckboxDemo.GetCheckbox3Status();
             bool statusCheckbox4 = BasicCheckboxDemo.GetCheckbox4Status();
 
-            string actualCheckboxText = BasicCheckboxDemo.GetCheckAllMessage();
-
             Assert.IsTrue(statusCheckbox1);
             Assert.IsTrue(statusCheckbox2);
             Assert.IsTrue(statusCheckbox3);
             Assert.IsTrue(statusCheckbox4);
+        }
+
+        [Test]
+        public static void Check_Multiple_Checkboxes_Selection()
+        {
+            string expectedButtonText = "Check All";
+
+            BasicCheckboxDemo.ClickMultipleCheckbox1();
+
+            string actualCheckboxText = BasicCheckboxDemo.GetCheckAllMessage();
+            Assert.AreEqual(expectedButtonText, actualCheckboxText);
+
+            BasicCheckboxDemo.ClickMultipleCheckbox2();
+
+            string actualCheckboxText2 = BasicCheckboxDemo.GetCheckAllMessage();
+            Assert.AreEqual(expectedButtonText, actualCheckboxText2);
+
+            BasicCheckboxDemo.ClickMultipleCheckbox3();
+
+            string actualCheckboxText3 = BasicCheckboxDemo.GetCheckAllMessage();
+            Assert.AreEqual(expectedButtonText, actualCheckboxText3);
+
+            BasicCheckboxDemo.ClickMultipleCheckbox4();
+
+            string expectedButtonText2 = "Uncheck All";
+            string actualCheckboxText4 = BasicCheckboxDemo.GetCheckAllMessage();
+            Assert.AreEqual(expectedButtonText2, actualCheckboxText4);
         }
     }
 }
