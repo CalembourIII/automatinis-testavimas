@@ -93,13 +93,19 @@ namespace FrameworkStatic.Pages.SeleniumEasy
             return statuses;
         }
 
-        //public static bool CheckIfAllCheckboxesAreSelected()
-        //{
-        //    List<bool> statuses = Common.GetMultipleElementStatus(multipleCheckboxesLocator);
+        public static bool CheckIfAllCheckboxesAreSelected()
+        {
+            List<bool> statuses = Common.GetMultipleElementStatus(multipleCheckboxesLocator);
 
-        //    foreach(bool check in statuses)
-        //    {
+            foreach (bool status in statuses)
+            {
+                if (status == false)
+                {
+                    return false;
+                }
+            }
 
-        //    }
+            return true;
+        }
     }
 }
