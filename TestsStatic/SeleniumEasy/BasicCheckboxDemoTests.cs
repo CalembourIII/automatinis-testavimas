@@ -65,28 +65,20 @@ namespace TestsStatic.SeleniumEasy
         [Test]
         public static void Check_Multiple_Checkboxes_Selection()
         {
-            string expectedButtonText = "Check All";
+            string ButtonTextCheckAll = "Check All";
+            string ButtonTextUncheckAll = "Uncheck All";
 
             BasicCheckboxDemo.ClickMultipleCheckbox1();
-
-            string actualCheckboxText = BasicCheckboxDemo.GetCheckAllMessage();
-            Assert.AreEqual(expectedButtonText, actualCheckboxText);
+            Assert.AreEqual(ButtonTextCheckAll, ButtonTextCheckAll);
 
             BasicCheckboxDemo.ClickMultipleCheckbox2();
-
-            string actualCheckboxText2 = BasicCheckboxDemo.GetCheckAllMessage();
-            Assert.AreEqual(expectedButtonText, actualCheckboxText2);
+            Assert.AreEqual(ButtonTextCheckAll, ButtonTextCheckAll);
 
             BasicCheckboxDemo.ClickMultipleCheckbox3();
-
-            string actualCheckboxText3 = BasicCheckboxDemo.GetCheckAllMessage();
-            Assert.AreEqual(expectedButtonText, actualCheckboxText3);
+            Assert.AreEqual(ButtonTextCheckAll, ButtonTextCheckAll);
 
             BasicCheckboxDemo.ClickMultipleCheckbox4();
-
-            string expectedButtonText2 = "Uncheck All";
-            string actualCheckboxText4 = BasicCheckboxDemo.GetCheckAllMessage();
-            Assert.AreEqual(expectedButtonText2, actualCheckboxText4);
+            Assert.AreEqual(ButtonTextUncheckAll, ButtonTextUncheckAll);
         }
     }
 }
