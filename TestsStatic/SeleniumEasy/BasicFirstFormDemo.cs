@@ -71,9 +71,6 @@ namespace TestsStatic.SeleniumEasy
         {
             string expectedResult = "NaN";
 
-            BasicFirstFormDemo.EnterValueToSum1("");
-            BasicFirstFormDemo.EnterValueToSum2("");
-
             BasicFirstFormDemo.ClickGetTotalButton();
 
             string actualResult = BasicFirstFormDemo.GetValueOfDisplayTotalValue();
