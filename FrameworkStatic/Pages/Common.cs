@@ -59,5 +59,19 @@ namespace FrameworkStatic.Pages
         {
             return GetElement(locator).Selected;
         }
+
+        internal static List<bool> GetMultipleElementStatus(string locator)
+        {
+            List<IWebElement> elements = GetElements(locator);
+            List<bool> statuses = new List<bool>();
+
+            foreach (IWebElement element in elements)
+            {
+                statuses.Add(element.Selected);
+            }
+
+            return statuses;
+
+        }
     }
 }

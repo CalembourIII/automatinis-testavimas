@@ -63,6 +63,19 @@ namespace TestsStatic.SeleniumEasy
         }
 
         [Test]
+        public static void Click_Check_All_Checkboxes_With_Bool()
+        {
+            List<bool> statuses = BasicCheckboxDemo.GetStatusOfAllCheckboxes();
+
+            foreach(bool status in statuses)
+            {
+                Assert.AreEqual(false, status);
+            }
+
+            //Assert.AreEqual(true, BasicCheckboxDemo.CheckIfAllCheckboxesAreSelected();
+        }
+
+        [Test]
         public static void Check_Multiple_Checkboxes_Selection()
         {
             string ButtonTextCheckAll = "Check All";
