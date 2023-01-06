@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="DemoQA\DynamicPropertiesTests.cs" />
     <Compile Include="DemoQA\TextBox.cs" />
     <Compile Include="OmayoBlogspot\Homepage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
