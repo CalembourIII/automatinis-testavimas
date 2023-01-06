@@ -33,5 +33,35 @@ namespace TestsStatic.SeleniumEasy
 
             Assert.AreEqual(expectedResult, actualResult);
         }
+
+        [Test]
+        public static void Click_Multiple_Checkboxes()
+        {
+            string expectedButtonText = "Uncheck All";
+
+            BasicCheckboxDemo.ClickEachCheckbox();
+
+            string actualCheckboxText = BasicCheckboxDemo.GetCheckAllMessage();
+
+            Assert.AreEqual(expectedButtonText, actualCheckboxText);
+        }
+
+        [Test]
+        public static void Click_Check_All_Checkboxes()
+        {
+
+            BasicCheckboxDemo.ClickCheckAllButton();
+            bool statusCheckbox1 = BasicCheckboxDemo.GetCheckbox1Status();
+            bool statusCheckbox2 = BasicCheckboxDemo.GetCheckbox2Status();
+            bool statusCheckbox3 = BasicCheckboxDemo.GetCheckbox3Status();
+            bool statusCheckbox4 = BasicCheckboxDemo.GetCheckbox4Status();
+
+            string actualCheckboxText = BasicCheckboxDemo.GetCheckAllMessage();
+
+            Assert.IsTrue(statusCheckbox1);
+            Assert.IsTrue(statusCheckbox2);
+            Assert.IsTrue(statusCheckbox3);
+            Assert.IsTrue(statusCheckbox4);
+        }
     }
 }

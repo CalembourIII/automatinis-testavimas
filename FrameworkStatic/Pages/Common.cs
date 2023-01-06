@@ -14,6 +14,11 @@ namespace FrameworkStatic.Pages
             return Driver.GetDriver().FindElement(By.XPath(locator));
         }
 
+        internal static List<IWebElement> GetElements(string locator)
+        {
+            return Driver.GetDriver().FindElements(By.XPath(locator)).ToList();
+        }
+
         internal static void ClickElement(string locator)
         {
             GetElement(locator).Click();
@@ -40,5 +45,14 @@ namespace FrameworkStatic.Pages
             GetElement(locator).Clear();
         }
 
+        internal static void ClickMultipleElements(string locator)
+        {
+            List<IWebElement> elements = GetElements(locator);
+
+            foreach (IWebElement element in elements)
+            {
+                element.Click();
+            }
+        }
     }
 }
