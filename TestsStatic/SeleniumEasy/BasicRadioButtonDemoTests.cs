@@ -35,5 +35,18 @@ namespace TestsStatic.SeleniumEasy
 
             Assert.AreEqual(expectedValue, actualValue);
         }
+
+        [Test]
+        public static void Select_Male_Age_15_50_Button()
+        {
+            string expectedValue = "Sex : Male\r\nAge group: 15 - 50";
+
+            BasicRadioButtonDemo.ClickMaleGroupRadioButton();
+            BasicRadioButtonDemo.ClickAgeGroup3RadioButton();
+            BasicRadioButtonDemo.ClickgetValueButton();
+            string actualValue = BasicRadioButtonDemo.getValueMessage();
+
+            Assert.AreEqual(expectedValue, actualValue);
+        }
     }
 }

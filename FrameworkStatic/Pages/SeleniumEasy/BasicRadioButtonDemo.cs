@@ -14,6 +14,14 @@ namespace FrameworkStatic.Pages.SeleniumEasy
         private static string getCheckedValueButtonLocator = "//*[@id='buttoncheck']";
         private static string getCheckedValueMessageLocator = "//*[@class='radiobutton']";
 
+        private static string maleGroupRadioButtonLocator = "(//input[@value='Male'])[2]";
+        private static string femaleGroupRadioButtonLocator = "(//input[@value='Female'])[2]";
+        private static string AgeGroup1RadioButtonLocator = "//*[@value='0 - 5']";
+        private static string AgeGroup2RadioButtonLocator = "//*[@value='5 - 15']";     
+        private static string AgeGroup3RadioButtonLocator = "//*[@value='15 - 50']";
+        private static string getValueButtonLocator = "(//*[@type='button'])[3]";
+        private static string getValueMessageLocator = "//*[@class='groupradiobutton']";
+
         public static void Open()
         {
             Driver.OpenPage(url);
@@ -33,9 +41,45 @@ namespace FrameworkStatic.Pages.SeleniumEasy
         {
             Common.ClickElement(getCheckedValueButtonLocator);
         }
+
         public static string getCheckedValueMessage()
         {
             return Common.GetElementText(getCheckedValueMessageLocator);
+        }
+
+        public static void ClickMaleGroupRadioButton()
+        {
+            Common.ClickElement(maleGroupRadioButtonLocator);
+        }
+
+        public static void ClickFemaleGroupRadioButton()
+        {
+            Common.ClickElement(femaleGroupRadioButtonLocator);
+        }
+
+        public static void ClickAgeGroup1RadioButton()
+        {
+            Common.ClickElement(AgeGroup1RadioButtonLocator);
+        }
+
+        public static void ClickAgeGroup2RadioButton()
+        {
+            Common.ClickElement(AgeGroup2RadioButtonLocator);
+        }
+
+        public static void ClickAgeGroup3RadioButton()
+        {
+            Common.ClickElement(AgeGroup3RadioButtonLocator);
+        }
+
+        public static void ClickgetValueButton()
+        {
+            Common.ClickElement(getValueButtonLocator);
+        }
+
+        public static string getValueMessage()
+        {
+            return Common.GetElementText(getValueMessageLocator);
         }
     }
 }
