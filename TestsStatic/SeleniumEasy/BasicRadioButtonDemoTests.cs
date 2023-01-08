@@ -22,7 +22,7 @@ namespace TestsStatic.SeleniumEasy
         [TearDown]
         public void CleanUp()
         {
-            //Driver.CloseDriver();
+            Driver.CloseDriver();
         }
 
         [Test]
