@@ -12,7 +12,7 @@ namespace FrameworkStatic.Pages
 {
     internal class Common
     {
-        internal static IWebElement GetElement(string locator)
+        private static IWebElement GetElement(string locator)
         {
             return Driver.GetDriver().FindElement(By.XPath(locator));
         }
@@ -128,7 +128,24 @@ namespace FrameworkStatic.Pages
         {
             IWebElement element = GetElement(selectElementLocator);
             SelectElement selectElement = new SelectElement(element);
+
             selectElement.SelectByValue(value);
+        }
+
+        internal static void SelectOptionByText(string oldStyleDropdownLocator, string optionText)
+        {
+            IWebElement element = GetElement(oldStyleDropdownLocator);
+            SelectElement selectElement = new SelectElement(element);
+
+            selectElement.SelectByText(optionText);
+        }
+
+        internal static string GetSelectedOptionText(string oldStyleDropdownLocator)
+        {
+            IWebElement element = GetElement(oldStyleDropdownLocator);
+            SelectElement selectElement = new SelectElement(element);
+
+            return selectElement.SelectedOption.Text;
         }
     }
 }
