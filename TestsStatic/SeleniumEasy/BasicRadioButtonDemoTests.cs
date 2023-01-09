@@ -43,8 +43,8 @@ namespace TestsStatic.SeleniumEasy
 
             BasicRadioButtonDemo.ClickMaleGroupRadioButton();
             BasicRadioButtonDemo.ClickAgeGroup3RadioButton();
-            BasicRadioButtonDemo.ClickgetValueButton();
-            string actualValue = BasicRadioButtonDemo.getValueMessage();
+            BasicRadioButtonDemo.ClickgetValuesButton();
+            string actualValue = BasicRadioButtonDemo.getValuesMessage();
 
             Assert.AreEqual(expectedValue, actualValue);
         }

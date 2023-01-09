@@ -9,18 +9,18 @@ namespace FrameworkStatic.Pages.SeleniumEasy
     public class BasicRadioButtonDemo
     {
         private static string url = "https://demo.seleniumeasy.com/basic-radiobutton-demo.html";
-        private static string maleRadioButtonLocator = "(//input[@value='Male'])[1]";
-        private static string femaleRadioButtonLocator = "(//input[@value='Female'])[1]";
+        private static string maleRadioButtonLocator = "(//input[@value='Male'])[1]"; //kitas XPatch variantas: //*[text()='Radio Button Demo']/following-sibling::div//input[@value='Male']/../
+        private static string femaleSingleRadioButtonLocator = "(//input[@value='Female'])[1]";
         private static string getCheckedValueButtonLocator = "//*[@id='buttoncheck']";
         private static string getCheckedValueMessageLocator = "//*[@class='radiobutton']";
 
-        private static string maleGroupRadioButtonLocator = "(//input[@value='Male'])[2]";
-        private static string femaleGroupRadioButtonLocator = "(//input[@value='Female'])[2]";
+        private static string maleGroupRadioButtonLocator = "(//input[@value='Male'])[2]"; // kitas XPatch variantas: //input[@name='gender'][@value='Male']
+        private static string femaleGroupRadioButtonLocator = "(//input[@value='Female'])[2]"; // kitas XPatch variantas: //input[@name='gender'][@value='Female']
         private static string AgeGroup1RadioButtonLocator = "//*[@value='0 - 5']";
         private static string AgeGroup2RadioButtonLocator = "//*[@value='5 - 15']";     
         private static string AgeGroup3RadioButtonLocator = "//*[@value='15 - 50']";
-        private static string getValueButtonLocator = "(//*[@type='button'])[3]";
-        private static string getValueMessageLocator = "//*[@class='groupradiobutton']";
+        private static string getValuesButtonLocator = "(//*[@type='button'])[3]"; // kitas XPatch variantas: //button(text)
+        private static string getValuesMessageLocator = "//*[@class='groupradiobutton']";
 
         public static void Open()
         {
@@ -34,7 +34,7 @@ namespace FrameworkStatic.Pages.SeleniumEasy
 
         public static void ClickFemaleRadioButton()
         {
-            Common.ClickElement(femaleRadioButtonLocator);
+            Common.ClickElement(femaleSingleRadioButtonLocator);
         }
 
         public static void ClickGetCheckedValueButton()
@@ -72,14 +72,14 @@ namespace FrameworkStatic.Pages.SeleniumEasy
             Common.ClickElement(AgeGroup3RadioButtonLocator);
         }
 
-        public static void ClickgetValueButton()
+        public static void ClickgetValuesButton()
         {
-            Common.ClickElement(getValueButtonLocator);
+            Common.ClickElement(getValuesButtonLocator);
         }
 
-        public static string getValueMessage()
+        public static string getValuesMessage()
         {
-            return Common.GetElementText(getValueMessageLocator);
+            return Common.GetElementText(getValuesMessageLocator);
         }
     }
 }
