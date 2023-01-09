@@ -57,12 +57,14 @@
     <Compile Include="DemoQA\ButtonsTests.cs" />
     <Compile Include="DemoQA\DynamicPropertiesTests.cs" />
     <Compile Include="DemoQA\RadioButtonTests.cs" />
+    <Compile Include="DemoQA\SelectMenuTests.cs" />
     <Compile Include="DemoQA\TextBox.cs" />
     <Compile Include="OmayoBlogspot\Homepage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeleniumEasy\BasicCheckboxDemoTests.cs" />
     <Compile Include="SeleniumEasy\BasicFirstFormDemo.cs" />
     <Compile Include="SeleniumEasy\BasicRadioButtonDemoTests.cs" />
+    <Compile Include="SeleniumEasy\BasicSelectDropdownDemoTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

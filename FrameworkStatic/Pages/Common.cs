@@ -123,5 +123,12 @@ namespace FrameworkStatic.Pages
             actions.DoubleClick(element);
             actions.Perform();
         }
+
+        internal static void SelectOptionByValue(string selectElementLocator, string value)
+        {
+            IWebElement element = GetElement(selectElementLocator);
+            SelectElement selectElement = new SelectElement(element);
+            selectElement.SelectByValue(value);
+        }
     }
 }
