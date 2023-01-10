@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace FrameworkStatic.Pages
 {
@@ -86,7 +87,7 @@ namespace FrameworkStatic.Pages
         internal static void WaitForElementAttributeToContainValue(string locator, string attributeName, string value)
         {
             WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(10));
-            wait.Until(driver => driver.FindElement(By.XPath(locator)).GetAttribute(attributeName).Contains (value));
+            wait.Until(driver => driver.FindElement(By.XPath(locator)).GetAttribute(attributeName).Contains(value));
         }
 
         internal static void WaitForElementToBeVisible(string locator)
@@ -124,28 +125,41 @@ namespace FrameworkStatic.Pages
             actions.Perform();
         }
 
+        internal static SelectElement GetSelectElement(string locator)
+        {
+            IWebElement element = GetElement(locator);
+            return new SelectElement(element);
+        }
+
+
         internal static void SelectOptionByValue(string selectElementLocator, string value)
         {
-            IWebElement element = GetElement(selectElementLocator);
-            SelectElement selectElement = new SelectElement(element);
+            SelectElement selectElement = GetSelectElement(selectElementLocator);
 
             selectElement.SelectByValue(value);
         }
 
-        internal static void SelectOptionByText(string oldStyleDropdownLocator, string optionText)
+        internal static void SelectOptionByText(string selectElementLocator, string optionText)
         {
-            IWebElement element = GetElement(oldStyleDropdownLocator);
-            SelectElement selectElement = new SelectElement(element);
+            SelectElement selectElement = GetSelectElement(selectElementLocator);
 
             selectElement.SelectByText(optionText);
         }
 
-        internal static string GetSelectedOptionText(string oldStyleDropdownLocator)
+        internal static string GetSelectedOptionText(string selectElementLocator)
         {
-            IWebElement element = GetElement(oldStyleDropdownLocator);
-            SelectElement selectElement = new SelectElement(element);
+            SelectElement selectElement = GetSelectElement(selectElementLocator);
 
             return selectElement.SelectedOption.Text;
+        }
+
+        internal static void MultiSelectByValue(string locator, string value)
+        {
+            SelectElement selectElement = GetSelectElement(locator);
+            Actions actions = new Actions(Driver.GetDriver());
+            actions.KeyDown(Keys.Control);
+            actions.Perform();
+            selectElement.SelectByValue(value);
         }
     }
 }

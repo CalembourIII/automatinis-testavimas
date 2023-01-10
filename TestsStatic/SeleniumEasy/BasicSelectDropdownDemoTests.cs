@@ -22,17 +22,35 @@ namespace TestsStatic.SeleniumEasy
         [TearDown]
         public void CleanUp()
         {
-            Driver.CloseDriver();
+            //Driver.CloseDriver();
         }
 
         [Test]
         public static void Select_Dropdown()
         {
-            string expectedDay = "Sunday";
+            string expectedDay = "Monday";
             BasicSelectDropdownDemo.SelectWeekday(expectedDay);
             string result = BasicSelectDropdownDemo.GetDaySelectedMessage();
 
             Assert.IsTrue(result.Contains(expectedDay));
+        }
+
+        [Test]
+        public void ValidateMultipleSelection()
+        {
+            string expectedResult = "First selected option is : Florida";
+
+
+            List<string> selectedStates = new List<string> { "Florida", "New York", "Texas" };
+            foreach (string state in selectedStates)
+            {
+                BasicSelectDropdownDemo.SelectMultiElements(state);
+            }
+
+            BasicSelectDropdownDemo.ClickFirstSelectedButton();
+            string actualResult = BasicSelectDropdownDemo.GetMultipleSelectedMessage();
+
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
     }
