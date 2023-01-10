@@ -16,7 +16,7 @@ namespace TestsStatic.SeleniumEasy
         public void SetUp()
         {
             Driver.Initialize();
-            BasicSelectDropdownDemo.Open();
+            JavascriptAlertBoxDemo.Open();
         }
 
         [TearDown]
@@ -51,6 +51,36 @@ namespace TestsStatic.SeleniumEasy
             string actualResult = BasicSelectDropdownDemo.GetMultipleSelectedMessage();
 
             Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [Test]
+        public static void Multi_Select_Using_Select()
+        {
+            List<string> selectionValues = new List<string> { "New York", "Florida", "Texas" };
+            string expectedResult = $"{selectionValues[0]}, {selectionValues[1]}, {selectionValues[2]}";
+            BasicSelectDropdownDemo.SelectMultipleOptionsByText(selectionValues);
+            BasicSelectDropdownDemo.GetAllSelectedButton();
+            BasicSelectDropdownDemo.GetMultiSelectMessage();
+
+            string actualResult = BasicSelectDropdownDemo.GetMultiSelectMessage();
+
+            Assert.IsTrue(actualResult.Contains(expectedResult),
+                $"Expected '{expectedResult}' in {actualResult}'");
+        }
+
+        [Test]
+        public static void Multi_Select_Using_Action()
+        {
+            List<string> selectionValues = new List<string> { "New York", "Florida", "Texas" };
+            string expectedResult = $"{selectionValues[0]}, {selectionValues[1]}, {selectionValues[2]}";
+            BasicSelectDropdownDemo.SelectMultipleOptionsByTextUsingAction(selectionValues);
+            BasicSelectDropdownDemo.GetAllSelectedButton();
+            BasicSelectDropdownDemo.GetMultiSelectMessage();
+
+            string actualResult = BasicSelectDropdownDemo.GetMultiSelectMessage();
+
+            Assert.IsTrue(actualResult.Contains(expectedResult),
+                $"Expected '{expectedResult}' in {actualResult}'");
         }
 
     }

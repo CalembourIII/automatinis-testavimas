@@ -55,12 +55,14 @@
   <ItemGroup>
     <Compile Include="Driver.cs" />
     <Compile Include="Pages\Common.cs" />
+    <Compile Include="Pages\DemoQA\Alerts.cs" />
     <Compile Include="Pages\DemoQA\Buttons.cs" />
     <Compile Include="Pages\DemoQA\DynamicProperties.cs" />
     <Compile Include="Pages\DemoQA\RadioButton.cs" />
     <Compile Include="Pages\DemoQA\SelectMenu.cs" />
     <Compile Include="Pages\DemoQA\TextBox.cs" />
     <Compile Include="Pages\OmayoBlogspot\Homepage.cs" />
+    <Compile Include="Pages\SeleniumEasy\JavascriptAlertBoxDemo.cs" />
     <Compile Include="Pages\SeleniumEasy\BasicCheckboxDemo.cs" />
     <Compile Include="Pages\SeleniumEasy\BasicFirstFormDemo.cs" />
     <Compile Include="Pages\SeleniumEasy\BasicRadioButtonDemo.cs" />

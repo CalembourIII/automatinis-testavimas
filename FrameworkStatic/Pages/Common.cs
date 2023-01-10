@@ -156,10 +156,59 @@ namespace FrameworkStatic.Pages
         internal static void MultiSelectByValue(string locator, string value)
         {
             SelectElement selectElement = GetSelectElement(locator);
-            Actions actions = new Actions(Driver.GetDriver());
-            actions.KeyDown(Keys.Control);
-            actions.Perform();
+            //Actions actions = new Actions(Driver.GetDriver());
+            //actions.KeyDown(Keys.Control);
             selectElement.SelectByValue(value);
+            //actions.Perform();
+        }
+
+        internal static void SelectMultipleOptionsByText(string selectStatesMultiSelectLocator, List<string> optionsTextList)
+        {
+            SelectElement selectElement = GetSelectElement(selectStatesMultiSelectLocator);
+            foreach(string optionText in optionsTextList)
+            {
+                selectElement.SelectByText(optionText);
+            }
+        }
+
+        internal static void SelectMultipleOptionsByTextUsingAction(string selectStatesMultiSelectLocator, List<string> optionElementLocatorList)
+        {
+            IWebElement selectElement = GetElement(selectStatesMultiSelectLocator);
+            Actions actions = new Actions(Driver.GetDriver());
+            List<IWebElement> optionElements = new List<IWebElement>();
+            foreach (string optionLocator in optionElementLocatorList)
+            {
+                optionElements.Add(GetElement(optionLocator));
+            }
+
+            actions.ScrollToElement(selectElement);
+
+            actions.KeyDown(Keys.Control);
+
+            foreach(IWebElement element in optionElements)
+            {
+                actions.Click(element);
+            }
+            actions.Perform();
+        }
+
+        internal static void AcceptAlert()
+        {
+            Driver.GetDriver().SwitchTo().Alert().Accept();
+        }
+        internal static void DismissAlert()
+        {
+            Driver.GetDriver().SwitchTo().Alert().Dismiss();
+        }
+
+        internal static string GetAlertText()
+        {
+            return Driver.GetDriver().SwitchTo().Alert().Text;
+        }
+
+        internal static void SendKeysToAlert(string keys)
+        {
+            Driver.GetDriver().SwitchTo().Alert().SendKeys(keys);
         }
     }
 }

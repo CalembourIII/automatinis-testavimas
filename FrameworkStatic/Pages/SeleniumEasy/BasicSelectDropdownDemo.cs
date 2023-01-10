@@ -50,5 +50,36 @@ namespace FrameworkStatic.Pages.SeleniumEasy
         {
             return Common.GetElementText(getMultipleSelectionMessageLocator);
         }
+
+        public static void SelectMultipleOptionsByText(List<string> selectionValues)
+        {
+            Common.SelectMultipleOptionsByText(selectStatesMultiSelectLocator, selectionValues);
+        }
+
+        public static void GetAllSelectedButton()
+        {
+            Common.ClickElement(getAllSelectedButtonLocator);
+        }
+
+        public static string GetMultiSelectMessage()
+        {
+            return Common.GetElementText(getMultipleSelectionMessageLocator);
+        }
+
+        private static List<string> GenerateOptionElementLocatorList(List<string> optionTextList)
+        {
+            List<string> locators = new List<string>();
+            foreach (string option in optionTextList)
+            {
+                locators.Add($"*[text()='{optionTextList}]')");
+            }
+            return locators;
+        }
+
+        public static void SelectMultipleOptionsByTextUsingAction(List<string> selectionValues)
+        {
+            List<string> optionElementLocatorList = GenerateOptionElementLocatorList(selectionValues);
+            Common.SelectMultipleOptionsByTextUsingAction(selectStatesMultiSelectLocator, optionElementLocatorList);
+        }
     }
 }
