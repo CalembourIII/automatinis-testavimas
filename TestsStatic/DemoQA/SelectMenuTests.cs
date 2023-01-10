@@ -35,5 +35,17 @@ namespace TestsStatic.DemoQA
             Assert.AreEqual(expectedColor, actualColor);
         }
 
+        [Test]
+        public static void Select_Value_Dropdown()
+        {
+            string expectedSelection = "Group 2, option 1";
+
+            SelectMenu.ExpandSelectValueDropdown();
+            SelectMenu.SelectValueFromSelectValueDropdown(expectedSelection);
+            string actualSelection = SelectMenu.GetSelectedValueOfSelectValueDropdown();
+
+            Assert.AreEqual(@expectedSelection, actualSelection);
+        }
+
     }
 }

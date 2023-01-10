@@ -10,6 +10,8 @@ namespace FrameworkStatic.Pages.DemoQA
     {
         private static string url = "https://demoqa.com/select-menu";
         private static string oldStyleDropdownLocator = "//*[@id='oldSelectMenu']";
+        private static string selectValueDropdownLocator = "//*[@id='withOptGroup']";
+        private static string selectionOfSelectValueDropdown = "//*[@id='withOptGroup']/div/div[1]/div[1]";
 
         public static void Open()
         {
@@ -24,6 +26,22 @@ namespace FrameworkStatic.Pages.DemoQA
         public static string GetSelectedColor()
         {
             return Common.GetSelectedOptionText(oldStyleDropdownLocator);
+        }
+
+        public static void ExpandSelectValueDropdown()
+        {
+            Common.ClickElement(selectValueDropdownLocator);
+        }
+
+        public static void SelectValueFromSelectValueDropdown(string value)
+        {
+            string optionByTextLocator = $"//*[text()='{value}']";
+            Common.ClickElement(optionByTextLocator);
+        }
+
+        public static string GetSelectedValueOfSelectValueDropdown()
+        {
+            return Common.GetElementText(selectionOfSelectValueDropdown);
         }
     }
 }
