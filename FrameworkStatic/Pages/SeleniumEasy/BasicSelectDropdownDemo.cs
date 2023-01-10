@@ -15,6 +15,9 @@ namespace FrameworkStatic.Pages.SeleniumEasy
         private static string firstSelectedButtonLocator = "//*[@id='printMe']";
         private static string getAllSelectedButtonLocator = "//*[@id='printAll']";
         private static string getMultipleSelectionMessageLocator = "//*[@class='getall-selected']";
+        private static string multiSelectElementLocator = "//*[@id='multi-select']";
+        private static string buttonGetAllSelectedLocator = "//*[@id='printAll']";
+        private static string multiSelectMessageLocator = "//*[@class='getall-selected']";
 
         public static void Open()
         {
@@ -41,19 +44,9 @@ namespace FrameworkStatic.Pages.SeleniumEasy
             Common.ClickElement(firstSelectedButtonLocator);
         }
 
-        public static void ClickGetAllSelectedButton()
-        {
-            Common.ClickElement(getAllSelectedButtonLocator);
-        }
-
         public static string GetMultipleSelectedMessage()
         {
             return Common.GetElementText(getMultipleSelectionMessageLocator);
-        }
-
-        public static void SelectMultipleOptionsByText(List<string> selectionValues)
-        {
-            Common.SelectMultipleOptionsByText(selectStatesMultiSelectLocator, selectionValues);
         }
 
         public static void GetAllSelectedButton()
@@ -61,25 +54,37 @@ namespace FrameworkStatic.Pages.SeleniumEasy
             Common.ClickElement(getAllSelectedButtonLocator);
         }
 
+        public static void ClickGetAllSelectedButton()
+        {
+            Common.ClickElement(buttonGetAllSelectedLocator);
+        }
+
         public static string GetMultiSelectMessage()
         {
-            return Common.GetElementText(getMultipleSelectionMessageLocator);
+            return Common.GetElementText(multiSelectMessageLocator);
         }
 
         private static List<string> GenerateOptionElementLocatorList(List<string> optionTextList)
         {
             List<string> locators = new List<string>();
-            foreach (string option in optionTextList)
+            foreach (string optionText in optionTextList)
             {
-                locators.Add($"*[text()='{optionTextList}]')");
+                locators.Add($"//*[text()='{optionText}']");
             }
             return locators;
         }
 
-        public static void SelectMultipleOptionsByTextUsingAction(List<string> selectionValues)
+        public static void SelectMultipleOptionsByTextUsingActions(List<string> selectionValues)
         {
             List<string> optionElementLocatorList = GenerateOptionElementLocatorList(selectionValues);
-            Common.SelectMultipleOptionsByTextUsingAction(selectStatesMultiSelectLocator, optionElementLocatorList);
+            Common.SelectMultipleOptionsByTextUsingActions(multiSelectElementLocator, optionElementLocatorList);
+        }
+
+        public static void SelectMultipleOptionsByText(List<string> selectionValues)
+        {
+            {
+                Common.SelectMultipleOptionsByText(multiSelectElementLocator, selectionValues);
+            }
         }
     }
 }

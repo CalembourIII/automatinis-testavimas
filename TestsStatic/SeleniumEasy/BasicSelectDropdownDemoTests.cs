@@ -16,13 +16,13 @@ namespace TestsStatic.SeleniumEasy
         public void SetUp()
         {
             Driver.Initialize();
-            JavascriptAlertBoxDemo.Open();
+            BasicSelectDropdownDemo.Open();
         }
 
         [TearDown]
         public void CleanUp()
         {
-            //Driver.CloseDriver();
+            Driver.CloseDriver();
         }
 
         [Test]
@@ -35,7 +35,7 @@ namespace TestsStatic.SeleniumEasy
             Assert.IsTrue(result.Contains(expectedDay));
         }
 
-        [Test]
+        [Test] // sitas mano paties parasytas neveikia, nes veliau prie Common naudoju selectElement ir Actions - taip tiesiog neveikia :/
         public void ValidateMultipleSelection()
         {
             string expectedResult = "First selected option is : Florida";
@@ -53,34 +53,46 @@ namespace TestsStatic.SeleniumEasy
             Assert.AreEqual(expectedResult, actualResult);
         }
 
+        /// <summary>
+        /// Šis testas pažymi kelis Select elemento Option elementus
+        /// Tam naudojamos Selenium SelectElement klasės pagalbinės funkcijos 
+        /// Tačiau, nors reikšmės vizualiai būna pažymėtos, 
+        /// paspaudus mygtuką Get All Selected, grąžinama tik viena reikšmė
+        /// </summary>
         [Test]
-        public static void Multi_Select_Using_Select()
+        public void MultiSelectUsingSelect()
         {
             List<string> selectionValues = new List<string> { "New York", "Florida", "Texas" };
-            string expectedResult = $"{selectionValues[0]}, {selectionValues[1]}, {selectionValues[2]}";
+            string expectedMessage = $"{selectionValues[0]},{selectionValues[1]},{selectionValues[2]}";
+
             BasicSelectDropdownDemo.SelectMultipleOptionsByText(selectionValues);
-            BasicSelectDropdownDemo.GetAllSelectedButton();
-            BasicSelectDropdownDemo.GetMultiSelectMessage();
+            BasicSelectDropdownDemo.ClickGetAllSelectedButton();
+            string actualMessage = BasicSelectDropdownDemo.GetMultiSelectMessage();
 
-            string actualResult = BasicSelectDropdownDemo.GetMultiSelectMessage();
-
-            Assert.IsTrue(actualResult.Contains(expectedResult),
-                $"Expected '{expectedResult}' in {actualResult}'");
+            Assert.IsTrue(actualMessage.Contains(expectedMessage),
+                $"Expected '{expectedMessage}' in '{actualMessage}'");
         }
 
+        /// <summary>
+        /// Šis testas pažymi kelis Select elemento Option elementus
+        /// Tam naudojam Selenium Actions klasė
+        /// POM dalyje kiekvienai iš Option reikšmių pagaminamas Xpath lokatorius
+        /// Xpath lokatoriai naudojami paspausti ant elementų naudojantis Actions klase
+        /// Jeigu prieš pradedant žymėti elementus nėra 'nuscrolinama' prie pačio select elemento
+        /// tuomet pirma reikšmė paspaudus mygtuką Get All Selected būna negrąžinama
+        /// </summary>
         [Test]
-        public static void Multi_Select_Using_Action()
+        public void MultiSelectUsingActions()
         {
             List<string> selectionValues = new List<string> { "New York", "Florida", "Texas" };
-            string expectedResult = $"{selectionValues[0]}, {selectionValues[1]}, {selectionValues[2]}";
-            BasicSelectDropdownDemo.SelectMultipleOptionsByTextUsingAction(selectionValues);
-            BasicSelectDropdownDemo.GetAllSelectedButton();
-            BasicSelectDropdownDemo.GetMultiSelectMessage();
+            string expectedMessage = $"{selectionValues[0]},{selectionValues[1]},{selectionValues[2]}";
 
-            string actualResult = BasicSelectDropdownDemo.GetMultiSelectMessage();
+            BasicSelectDropdownDemo.SelectMultipleOptionsByTextUsingActions(selectionValues);
+            BasicSelectDropdownDemo.ClickGetAllSelectedButton();
+            string actualMessage = BasicSelectDropdownDemo.GetMultiSelectMessage();
 
-            Assert.IsTrue(actualResult.Contains(expectedResult),
-                $"Expected '{expectedResult}' in {actualResult}'");
+            Assert.IsTrue(actualMessage.Contains(expectedMessage),
+                $"Expected '{expectedMessage}' in '{actualMessage}'");
         }
 
     }

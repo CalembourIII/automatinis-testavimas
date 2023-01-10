@@ -162,15 +162,6 @@ namespace FrameworkStatic.Pages
             //actions.Perform();
         }
 
-        internal static void SelectMultipleOptionsByText(string selectStatesMultiSelectLocator, List<string> optionsTextList)
-        {
-            SelectElement selectElement = GetSelectElement(selectStatesMultiSelectLocator);
-            foreach(string optionText in optionsTextList)
-            {
-                selectElement.SelectByText(optionText);
-            }
-        }
-
         internal static void SelectMultipleOptionsByTextUsingAction(string selectStatesMultiSelectLocator, List<string> optionElementLocatorList)
         {
             IWebElement selectElement = GetElement(selectStatesMultiSelectLocator);
@@ -222,6 +213,37 @@ namespace FrameworkStatic.Pages
             {
                 return false;
             }
+        }
+
+        internal static void SelectMultipleOptionsByText(string selectElementLocator, List<string> optionTextList)
+        {
+            SelectElement selectElement = GetSelectElement(selectElementLocator);
+            foreach (string optionText in optionTextList)
+            {
+                selectElement.SelectByText(optionText);
+            }
+        }
+
+        internal static void SelectMultipleOptionsByTextUsingActions(string selectElementLocator, List<string> optionElementLocatorList)
+        {
+            IWebElement selectElement = GetElement(selectElementLocator);
+
+            // Iš lokatorių sąrašo 'pasigaminame' elementų sąrašą
+            List<IWebElement> optionElements = new List<IWebElement>();
+            foreach (string optionLocator in optionElementLocatorList)
+            {
+                optionElements.Add(GetElement(optionLocator));
+            }
+
+            // Atliekame elementų pažymėjimą
+            Actions actions = new Actions(Driver.GetDriver());
+            actions.ScrollToElement(selectElement); // Turime 'nuscrolinti' prie select elemento (kažkodėl), kad būtų atvaizduota ir pirma reikšmė
+            actions.KeyDown(Keys.Control);
+            foreach (IWebElement element in optionElements)
+            {
+                actions.Click(element);
+            }
+            actions.Perform();
         }
     }
 }
