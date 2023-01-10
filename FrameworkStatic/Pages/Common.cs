@@ -210,5 +210,18 @@ namespace FrameworkStatic.Pages
         {
             Driver.GetDriver().SwitchTo().Alert().SendKeys(keys);
         }
+
+        internal static bool CheckIfElementIsPresent(string locator)
+        {
+            try
+            {
+                GetElement(locator);
+                return true;
+            }
+            catch (NoSuchElementException)
+            {
+                return false;
+            }
+        }
     }
 }
