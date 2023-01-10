@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FrameworkStatic.Pages.DemoQA;
+using System.Threading;
 
 namespace TestsStatic.DemoQA
 {
@@ -36,6 +37,15 @@ namespace TestsStatic.DemoQA
             Assert.AreEqual(messageElementIsPresent, messageElementActualPresence);
         }
 
+        [Test]
+        public static void Alert_With_Wait()
+        {
+            bool expectedAlertPresenceResult = false;
+            Alerts.ClickAlertWithDelayButton();
+            Alerts.ConfirmAlert();
+            bool actualAlertPresence = Alerts.CheckIfAlertPresent();
 
+            Assert.AreEqual(expectedAlertPresenceResult, actualAlertPresence);
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using FrameworkStatic;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
@@ -244,6 +245,37 @@ namespace FrameworkStatic.Pages
                 actions.Click(element);
             }
             actions.Perform();
+        }
+
+        internal static bool CheckIfAlertPresent()
+        {
+                try
+                {
+                    Driver.GetDriver().SwitchTo().Alert();
+                    return true;
+                }
+                catch (NoAlertPresentException)
+                {
+                    return false;
+                }
+            }
+
+        internal static void WaitForAlertToBePresent()
+        {
+            WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(10));
+            wait.Until(ExpectedConditions.AlertIsPresent());
+        }
+
+        internal static void WaitForSeconds(int milliseconds) // toki naudoti bloga praktika - geriau naudoti Until
+        {
+            System.Threading.Thread.Sleep(milliseconds);
+        }
+
+        internal static void WaitForElementWithText(string text)
+        {
+            WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(20));
+            wait.IgnoreExceptionTypes(typeof(StaleElementReferenceException));
+            wait.Until(d => d.FindElement(By.XPath($"//*")).Text.Contains(text));
         }
     }
 }

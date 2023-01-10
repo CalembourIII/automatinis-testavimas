@@ -9,9 +9,9 @@ namespace FrameworkStatic.Pages.DemoQA
     public class Alerts
     {
         private static string url = "https://demoqa.com/alerts";
-        private static string buttonPromptBoxLocator = "//*[@id='promtButton']";
+        private static string promptBoxButtonLocator = "//*[@id='promtButton']";
+        private static string AlertButtonWithDelayLocator = "//*[@id='timerAlertButton']";
         private static string promptResultMessageLocator = "//*[@id='promptResult']";
-
 
         public static void Open()
         {
@@ -20,17 +20,31 @@ namespace FrameworkStatic.Pages.DemoQA
 
         public static void ClickPromptAlertBoxButton()
         {
-            Common.ClickElement(buttonPromptBoxLocator);
+            Common.ClickElement(promptBoxButtonLocator);
+        }
+        public static void ClickAlertWithDelayButton()
+        {
+            Common.ClickElement(AlertButtonWithDelayLocator);
         }
 
         public static void CancelAlert()
         {
             Common.DismissAlert();
         }
+        public static void ConfirmAlert()
+        {
+            Common.WaitForAlertToBePresent();
+            Common.AcceptAlert();
+        }
 
         public static bool CheckIfMessageElementIsPresent()
         {
            return Common.CheckIfElementIsPresent(promptResultMessageLocator);
+        }
+
+        public static bool CheckIfAlertPresent()
+        {
+            return Common.CheckIfAlertPresent();
         }
     }
 }

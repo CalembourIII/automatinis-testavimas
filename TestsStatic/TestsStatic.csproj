@@ -60,6 +60,7 @@
     <Compile Include="DemoQA\RadioButtonTests.cs" />
     <Compile Include="DemoQA\SelectMenuTests.cs" />
     <Compile Include="DemoQA\TextBox.cs" />
+    <Compile Include="Facebook\LoginTests.cs" />
     <Compile Include="OmayoBlogspot\Homepage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeleniumEasy\JavascriptAlertBoxDemoTests.cs" />

@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace FrameworkStatic.Pages.OmayoBlogspot
 
         private static string htmlFormUserNameLocator = "//form[@name='form1']/input[@type='text']"; // lokatorius apsirasau klases virsuj, po to pernaudoju
         private static string textBoxWithpreloadedTextLocator = "//*[@id=\"textbox1\"]";
+        private static string inputFileUploadLocator = "//*[@id='uploadfile']";
 
         public static void Open()
         {
@@ -48,6 +50,19 @@ namespace FrameworkStatic.Pages.OmayoBlogspot
         {
             string locator = "//*[@id=\"textbox1\"]";
             return Common.GetAttributeValue(locator, "value");
+        }
+
+        public static void SetFileForUpload()
+        {
+            string currentDirectoryPath = Directory.GetCurrentDirectory();
+            string solutionDirectoryPath = Directory.GetParent(currentDirectoryPath).Parent.Parent.FullName;
+            string demoFilePath = $"{solutionDirectoryPath}/FrameworkStatic/Driver.cs";
+            Common.SendKeysToElement(inputFileUploadLocator, demoFilePath);
+        }
+
+        public static string GetSelectedFileName()
+        {
+            return Common.GetAttributeValue(inputFileUploadLocator, "value");
         }
     }
 }
