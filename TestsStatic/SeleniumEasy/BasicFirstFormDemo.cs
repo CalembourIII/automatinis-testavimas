@@ -25,7 +25,7 @@ namespace TestsStatic.SeleniumEasy
             Driver.CloseDriver();
         }
 
-        [Test]
+        [Test, Order(4)]
         public void Enter_Message_Text_Get_Span_Value()
         {
             string expectedResult = "Paulius";
@@ -38,7 +38,7 @@ namespace TestsStatic.SeleniumEasy
             Assert.AreEqual(expectedResult, actualResult);
         }
 
-        [Test]
+        [Test, Order(2)]
         public void Enter_Message_Text_Get_Full_Value()
         {
             string message = "Paulius";
@@ -52,7 +52,7 @@ namespace TestsStatic.SeleniumEasy
             Assert.AreEqual(expectedResult, actualResult);
         }
 
-        [Test]
+        [Test, Order(1)]
         public void Enter_Values_To_Sum_Get_Total_Value()
         {
             string expectedResult = "10";
@@ -66,7 +66,7 @@ namespace TestsStatic.SeleniumEasy
             Assert.AreEqual(expectedResult, actualResult);
         }
 
-        [Test]
+        [Test, Order(3)]
         public void Enter_Values_To_Sum_Check_NaN()
         {
             string expectedResult = "NaN";
