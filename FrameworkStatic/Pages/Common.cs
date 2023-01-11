@@ -277,5 +277,30 @@ namespace FrameworkStatic.Pages
             wait.IgnoreExceptionTypes(typeof(StaleElementReferenceException));
             wait.Until(d => d.FindElement(By.XPath($"//*")).Text.Contains(text));
         }
+
+        internal static string GetCurrentWindowHandle()
+        {
+            return Driver.GetDriver().CurrentWindowHandle;
+        }
+        internal static List<string> GetWindowHandles()
+        {
+            return Driver.GetDriver().WindowHandles.ToList();
+        }
+        internal static void SwitchToWindowByHandle(string handle)
+        {
+            Driver.GetDriver().SwitchTo().Window(handle);
+        }
+        internal static void SwitchToNewWindowFromParentWindowByHandle(string parentWindowHandle)
+        {
+            List<string> handles = GetWindowHandles();
+            foreach (string handle in handles)
+            {
+                if (handle != parentWindowHandle)
+                {
+                    SwitchToWindowByHandle(handle);
+                    break;
+                }
+            }
+        }
     }
 }

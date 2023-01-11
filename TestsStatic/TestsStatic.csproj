@@ -57,6 +57,7 @@
     <Compile Include="BaseClasses\BaseTestSingleSession.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DemoQA\AlertsTests.cs" />
+    <Compile Include="DemoQA\BrowserWindowsTests.cs" />
     <Compile Include="DemoQA\ButtonsTests.cs" />
     <Compile Include="DemoQA\DynamicPropertiesTests.cs" />
     <Compile Include="DemoQA\RadioButtonTests.cs" />

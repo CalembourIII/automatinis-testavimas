@@ -24,7 +24,6 @@ namespace FrameworkStatic
             //options.AddArgument("headless");
             //options.AddArgument("window-size=1920,1080");
 
-
             driver.Value = new ChromeDriver(options);
         }
 
@@ -52,6 +51,16 @@ namespace FrameworkStatic
             Directory.CreateDirectory(screenshotsDirectoryPath);
             Screenshot screenshot = ((ITakesScreenshot)driver.Value).GetScreenshot();
             screenshot.SaveAsFile(screenshotName, ScreenshotImageFormat.Png);
+        }
+
+        internal static string GetCurrentWindowHandle()
+        {
+            return Driver.GetCurrentWindowHandle();
+        }
+
+        internal static List<string> GetCurrentWindowHandles()
+        {
+            return Driver.GetCurrentWindowHandles().ToList();
         }
     }
 }

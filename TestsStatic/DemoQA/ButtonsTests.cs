@@ -14,7 +14,7 @@ namespace TestsStatic.DemoQA
     internal class ButtonsTests : BaseTestSingleSession
     {
         [OneTimeSetUp]
-        public void SetUp()
+        public void Open()
         {
             Buttons.Open();
         }
