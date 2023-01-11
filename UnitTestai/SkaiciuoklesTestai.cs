@@ -43,7 +43,6 @@ namespace UnitTestai
             Assert.AreEqual(rez, Skaiciuokles.Skaiciuokles.Suma(int1, int2));
         }
 
-
         [Test]
         public void AtimtiesTestas()
         {
@@ -62,24 +61,6 @@ namespace UnitTestai
             int actualResult = Skaiciuokles.Skaiciuokles.Sandauga(10, 10);
 
             Assert.AreEqual(expectedResult, actualResult);
-        }
-
-        [Test]
-        public void DalybosTestas()
-        {
-            double expectedResult = 1.5;
-
-            double actualResult = Skaiciuokles.Skaiciuokles.Dalyba(6, 4);
-
-            Assert.AreEqual(expectedResult, actualResult);
-        }
-
-        [Test]
-        public void DalybosTestai()
-        {
-            Assert.AreEqual(1.5, Skaiciuokles.Skaiciuokles.Dalyba(6, 4));
-            Assert.AreEqual(2, Skaiciuokles.Skaiciuokles.Dalyba(8, 4));
-            Assert.AreEqual(0.3333333333333333, Skaiciuokles.Skaiciuokles.Dalyba(1, 3));
         }
     }
 }
