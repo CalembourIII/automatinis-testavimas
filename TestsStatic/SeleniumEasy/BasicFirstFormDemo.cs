@@ -26,11 +26,11 @@ namespace TestsStatic.SeleniumEasy
         }
 
         [TestCase("Tomas")]
+        [TestCase("Paulius")]
+        [TestCase("NaN")]
         [Test, Order(4)]
-        public void Enter_Message_Text_Get_Span_Value(string text)
+        public void Enter_Message_Text_Get_Span_Value(string expectedResult)
         {
-            string expectedResult = "Paulius";
-
             BasicFirstFormDemo.EnterMessage(expectedResult);
             BasicFirstFormDemo.ClickShowMessageButton();
 
