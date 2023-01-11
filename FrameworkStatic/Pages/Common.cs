@@ -302,5 +302,10 @@ namespace FrameworkStatic.Pages
                 }
             }
         }
+        internal static void SwitchToIframeByLocator(string iframeElementLocator)
+        {
+            IWebElement iframeElement = GetElement(iframeElementLocator);
+            Driver.GetDriver().SwitchTo().Frame(iframeElement);
+        }
     }
 }
