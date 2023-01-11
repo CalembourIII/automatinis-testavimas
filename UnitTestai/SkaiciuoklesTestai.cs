@@ -25,6 +25,25 @@ namespace UnitTestai
             // Assert.True(expectedResult== actualResult, $"Tikiuosi: {expectedResult}; rezultatas: {actualResult})");
         }
 
+        [TestCase(6, 4, 1.5)]
+        [TestCase(8, 4, 2)]
+        [TestCase(1, 3, 0.3333333333333333)]
+        [Test]
+        public void Dalyba(int int1, int int2, double rez)
+        {
+            Assert.AreEqual(rez, Skaiciuokles.Skaiciuokles.Dalyba(int1, int2));
+        }
+
+        [TestCase(6, 4, 10)]
+        [TestCase(8, 4, 12)]
+        [TestCase(1, 3, 4)]
+        [Test]
+        public void Suma(int int1, int int2, int rez)
+        {
+            Assert.AreEqual(rez, Skaiciuokles.Skaiciuokles.Suma(int1, int2));
+        }
+
+
         [Test]
         public void AtimtiesTestas()
         {

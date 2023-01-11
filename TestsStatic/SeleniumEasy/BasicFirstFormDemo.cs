@@ -25,8 +25,9 @@ namespace TestsStatic.SeleniumEasy
             Driver.CloseDriver();
         }
 
+        [TestCase("Tomas")]
         [Test, Order(4)]
-        public void Enter_Message_Text_Get_Span_Value()
+        public void Enter_Message_Text_Get_Span_Value(string text)
         {
             string expectedResult = "Paulius";
 
