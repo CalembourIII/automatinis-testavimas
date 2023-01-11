@@ -8,22 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using FrameworkStatic.Pages.DemoQA;
 using System.Threading;
+using TestsStatic.BaseClasses;
 
 namespace TestsStatic.DemoQA
 {
-    internal class AlertsTests
+    internal class AlertsTests : BaseTest
     {
         [SetUp]
-        public void SetUp()
+        public void Open()
         {
-            Driver.Initialize();
             Alerts.Open();
         }
 
         [TearDown]
-        public void CleanUp()
+        public override void CleanUp()
         {
-            Driver.CloseDriver();
+
         }
 
         [Test]

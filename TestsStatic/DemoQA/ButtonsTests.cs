@@ -7,22 +7,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestsStatic.BaseClasses;
 
 namespace TestsStatic.DemoQA
 {
-    internal class ButtonsTests
+    internal class ButtonsTests : BaseTestSingleSession
     {
-        [SetUp]
+        [OneTimeSetUp]
         public void SetUp()
         {
-            Driver.Initialize();
             Buttons.Open();
-        }
-
-        [TearDown]
-        public void CleanUp()
-        {
-            Driver.CloseDriver();
         }
 
         [Test]
