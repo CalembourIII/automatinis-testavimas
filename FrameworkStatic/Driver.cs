@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,11 +12,19 @@ namespace FrameworkStatic
 {
     public class Driver
     {
+
         private static IWebDriver driver;
 
         public static void Initialize()
         {
-            driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.AddArgument("disable-notifications");
+            //options.AddArgument("start-maximized");
+            //options.AddArgument("headless");
+            //options.AddArgument("window-size=1920,1080");
+
+
+            driver = new ChromeDriver(options);
         }
 
         public static IWebDriver GetDriver()
