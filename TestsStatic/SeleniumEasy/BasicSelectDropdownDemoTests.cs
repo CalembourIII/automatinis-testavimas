@@ -7,23 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FrameworkStatic.Pages.SeleniumEasy;
+using NUnit.Framework.Interfaces;
+using TestsStatic.BaseClasses;
 
 namespace TestsStatic.SeleniumEasy
 {
-    internal class BasicSelectDropdownDemoTests
+    internal class BasicSelectDropdownDemoTests : BaseTest
     {
         [SetUp]
-        public void SetUp()
+        public void Open()
         {
-            Driver.Initialize();
             BasicSelectDropdownDemo.Open();
-        }
-
-        [TearDown]
-        public void CleanUp()
-        {
-            Driver.TakeScreenshot();
-            Driver.CloseDriver();
         }
 
         [Test]

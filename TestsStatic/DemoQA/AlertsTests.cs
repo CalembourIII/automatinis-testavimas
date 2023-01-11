@@ -20,12 +20,6 @@ namespace TestsStatic.DemoQA
             Alerts.Open();
         }
 
-        [TearDown]
-        public override void CleanUp()
-        {
-
-        }
-
         [Test]
         public static void Prompt_Box_Default_Value_Cancel()
         {

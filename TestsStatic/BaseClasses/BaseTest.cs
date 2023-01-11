@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework.Interfaces;
 
 namespace TestsStatic.BaseClasses
 {
@@ -18,8 +19,12 @@ namespace TestsStatic.BaseClasses
         }
 
         [TearDown]
-        public virtual void CleanUp()
+        public virtual void TearDown()
         {
+            if (TestContext.CurrentContext.Result.Outcome != ResultState.Success)
+            {
+                Driver.TakeScreenshot(TestContext.CurrentContext.Test.FullName);
+            }
             Driver.CloseDriver();
         }
     }

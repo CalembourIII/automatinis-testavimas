@@ -33,14 +33,15 @@ namespace FrameworkStatic
             driver.Quit();
         }
 
-        public static void TakeScreenshot()
+        public static void TakeScreenshot(string testMethodName)
         {
             string screenshotsDirectoryPath = $"{AppDomain.CurrentDomain.BaseDirectory}screenshots";
-            string screenshotsName = $"{screenshotsDirectoryPath}\\scr-{Guid.NewGuid()}.png";
+            //string screenshotName = $"{screenshotsDirectoryPath}\\scr-{Guid.NewGuid()}.png";
+            string screenshotName = $"{screenshotsDirectoryPath}\\scr-{testMethodName}-{DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")}.png";
 
             Directory.CreateDirectory(screenshotsDirectoryPath);
             Screenshot screenshot = ((ITakesScreenshot)driver).GetScreenshot();
-            screenshot.SaveAsFile(screenshotsName, ScreenshotImageFormat.Png);
+            screenshot.SaveAsFile(screenshotName, ScreenshotImageFormat.Png);
         }
     }
 }
