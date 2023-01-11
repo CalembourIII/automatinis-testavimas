@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace FrameworkStatic
@@ -13,7 +14,7 @@ namespace FrameworkStatic
     public class Driver
     {
 
-        private static IWebDriver driver;
+        private static ThreadLocal<IWebDriver> driver = new ThreadLocal<IWebDriver>();
 
         public static void Initialize()
         {
@@ -24,22 +25,22 @@ namespace FrameworkStatic
             //options.AddArgument("window-size=1920,1080");
 
 
-            driver = new ChromeDriver(options);
+            driver.Value = new ChromeDriver(options);
         }
 
         public static IWebDriver GetDriver()
         {
-            return driver;
+            return driver.Value;
         }
         public static void OpenPage(string url)
         {
-            driver.Url = url;
+            driver.Value.Url = url;
             //driver.Navigate().GoToUrl(url); // kitoks metodas atidaryti url
         }
 
         public static void CloseDriver()
         {
-            driver.Quit();
+            driver.Value.Quit();
         }
 
         public static void TakeScreenshot(string testMethodName)
@@ -49,7 +50,7 @@ namespace FrameworkStatic
             string screenshotName = $"{screenshotsDirectoryPath}\\scr-{testMethodName}-{DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")}.png";
 
             Directory.CreateDirectory(screenshotsDirectoryPath);
-            Screenshot screenshot = ((ITakesScreenshot)driver).GetScreenshot();
+            Screenshot screenshot = ((ITakesScreenshot)driver.Value).GetScreenshot();
             screenshot.SaveAsFile(screenshotName, ScreenshotImageFormat.Png);
         }
     }
