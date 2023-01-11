@@ -22,6 +22,7 @@ namespace TestsStatic.SeleniumEasy
         [TearDown]
         public void CleanUp()
         {
+            Driver.TakeScreenshot();
             Driver.CloseDriver();
         }
 

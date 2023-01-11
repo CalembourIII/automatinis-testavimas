@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,16 @@ namespace FrameworkStatic
         public static void CloseDriver()
         {
             driver.Quit();
+        }
+
+        public static void TakeScreenshot()
+        {
+            string screenshotsDirectoryPath = $"{AppDomain.CurrentDomain.BaseDirectory}screenshots";
+            string screenshotsName = $"{screenshotsDirectoryPath}\\scr-{Guid.NewGuid()}.png";
+
+            Directory.CreateDirectory(screenshotsDirectoryPath);
+            Screenshot screenshot = ((ITakesScreenshot)driver).GetScreenshot();
+            screenshot.SaveAsFile(screenshotsName, ScreenshotImageFormat.Png);
         }
     }
 }
